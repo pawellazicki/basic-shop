@@ -1,0 +1,17 @@
+<mat-toolbar 
+  class="sticky top-0 z-30"
+  color="primary">
+  <span class="ml-2 mr-4">
+    {{BASIC_VALUES.APP_NAME}}
+  </span>
+  <span class="example-spacer"></span>
+  <button 
+    mat-flat-button
+    color="primary"
+    class="ml-2"
+    [class.selected]="navUnit.selected"
+    *ngFor="let navUnit of navigationService.navigationUnits$ | async"
+    (click)="navigationService.navigate(navUnit.route)">
+    {{navUnit.label}}
+  </button>
+</mat-toolbar>

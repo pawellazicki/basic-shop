@@ -1,0 +1,49 @@
+<div class="w-full h-full">
+  <!-- TITLE -->
+  <div class="mt-5 ml-5 font-medium text-2xl">
+    Users
+  </div>
+
+  <!-- LOADING -->
+  <div 
+    *ngIf="isLoading$ | async"
+    class="w-full flex">
+    <mat-spinner 
+      class="mx-auto">
+    </mat-spinner>
+  </div>
+
+  <!-- CARDS -->
+  <div
+    class="flex my-10">
+    <div 
+      class="w-full justify-items-center grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-5">
+      <mat-card 
+        *ngFor="let user of users; let i = index"
+        class="w-44 md:w-52 lg:w-64 cursor-pointer animate-scaleDown hover:animate-scaleUp opacity-0"
+        matRipple
+        [@appear]="{value: animationState$ | async, params:{duration: '1', delay: (i/5), opacityMinValue: '0.01'}}"
+        (click)="navigationService.navigate(NavigationRouteEnum.USER, user.id)">
+        
+        <mat-card-header>
+          <mat-card-title class="select-none break-all">
+            {{user.username}}
+          </mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <div
+            class="flex flex-col select-none">
+              <img 
+                class="p-3"
+                src="../../../assets/user.png">
+              <div class="break-all">
+                {{user.email}}
+              </div>
+          </div>
+        </mat-card-content>
+      
+      </mat-card>
+    </div>
+  </div>
+</div>

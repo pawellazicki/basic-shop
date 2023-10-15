@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Data editor</h1>
+<div mat-dialog-content>
+
+  <div class="flex">
+    <!-- USER ID -->
+    <mat-form-field class="mr-4">
+      <mat-label>User ID</mat-label>
+      <input matInput type="number" [(ngModel)]="data.userId">
+    </mat-form-field>
+  
+    <!-- COMPLETED -->
+    <mat-checkbox 
+      [(ngModel)]="data.completed">
+      Completed
+    </mat-checkbox>
+  </div>
+  
+    <!-- TITLE -->
+    <mat-form-field class="w-full">
+      <mat-label>Title</mat-label>
+      <textarea matInput [(ngModel)]="data.title"></textarea>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button 
+    mat-stroked-button
+    color="primary"
+    [mat-dialog-close]="data" 
+    cdkFocusInitial>
+      Edit
+    </button>
+  <button 
+    mat-stroked-button
+    color="warn"
+    [mat-dialog-close]="null">
+      Cancel
+    </button>
+</div>

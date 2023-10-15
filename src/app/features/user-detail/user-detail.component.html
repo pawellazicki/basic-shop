@@ -1,0 +1,53 @@
+<div class="w-full h-full">
+
+  <!-- LOADING -->
+  <mat-progress-bar 
+    *ngIf="!(UserData$ | async)"
+    color="accent"
+    mode="indeterminate">
+  </mat-progress-bar>
+
+  <!-- USER DATA -->
+  <div
+    *ngIf="UserData$ | async as user"
+    class="w-full my-10">
+
+    <mat-card class="w-10/12 sm:w-7/12 md:w-6/12 lg:w-4/12 xl:w-3/12 mx-auto h-auto">
+
+      <!-- HEADER -->
+      <mat-card-header>
+        <mat-card-title>
+          <span class="font-medium text-2xl md:text-3xl">
+            {{user.name}}
+          </span>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <span class="font-medium text-sm md:text-base">
+            {{user.username}}
+          </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <!-- CONTENT -->
+      <mat-card-content 
+        class="flex flex-col">
+        <img 
+          class="p-10"
+          src="../../../assets/user.png">
+        <div
+          class="font-normal text-sm md:text-base">
+          <strong>Email:</strong> {{user.email}}<br>
+          <strong>Phone number:</strong> {{user.phone}}<br>
+          <strong>Website:</strong> {{user.website}}
+        </div>
+        <div
+          class="mt-2 font-normal text-sm">
+          <strong>Address:</strong><br>
+          {{user.address.zipcode}}&nbsp;{{user.address.city}}<br>
+          {{user.address.street}},&nbsp;{{user.address.suite}}
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>
