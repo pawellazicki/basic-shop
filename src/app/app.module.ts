@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module'
 import { SharedModule } from './shared/shared.module'
 import { FeaturesModule } from './features/features.module'
 import { TodosModule } from './features/todos/todos.module'
+import { todosList } from './shared/state/todoList.reducer'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TodosModule } from './features/todos/todos.module'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ list: todosList }),
     CoreModule,
     SharedModule,
     FeaturesModule,

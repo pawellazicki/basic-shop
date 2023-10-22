@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { animationLoaded } from './../../shared/utils/animations';
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core'
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subject, take, delay, Observable, BehaviorSubject, map } from 'rxjs'
+import { take, delay, Observable, BehaviorSubject, map } from 'rxjs'
 import { NavigationService } from 'src/app/core/services/navigation.service';
 import { User } from 'src/app/shared/model/user.model'
 import { UserDataService } from 'src/app/shared/services/user-data.service'
@@ -27,7 +27,7 @@ export class HomeComponent implements OnDestroy {
   constructor(
     private _userDataService: UserDataService,
     protected navigationService: NavigationService,
-    private _snackBar: MatSnackBar,
+    private _snackBar: MatSnackBar
   ) {
     this.getUsersData()
     navigationService.setSelectedNavUnit(NavigationRouteEnum.HOME)

@@ -9,11 +9,24 @@
   <div
     class="w-11/12 mx-auto my-5">
 
-    <!-- SEARCHER -->
-    <mat-form-field>
-      <mat-label>Search</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Input Todo data" #input>
-    </mat-form-field>
+    <div class="flex justify-between">
+
+      <!-- SEARCHER -->
+      <mat-form-field class="mt-0 mb-auto">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Input Todo data" #input>
+      </mat-form-field>
+
+      <!-- SELECTED TODOS  -->
+      <mat-chip-listbox class="w-3/4">
+        <mat-chip-option
+          *ngFor="let todo of todosSelected$ | async" 
+          color="accent"
+          (selectionChange)="removeFromList(todo)">
+          {{todo.title}}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
     
     <div class="mat-elevation-z8">
       <!-- LOADING -->
@@ -47,6 +60,7 @@
           mat-row 
           *matRowDef="let row; columns: displayedColumns;"
           class="cursor-pointer hover:bg-slate-700 hover:bg-opacity-10"
+          (click)="addToList(row)"
           (dblclick)="editTodo(row)">
         </tr>
     

@@ -9,6 +9,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatChipsModule
   ]
 })
 export class TodosModule { }
